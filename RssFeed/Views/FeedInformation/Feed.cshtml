@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Feed Information";
+}
+
+<script src="https://cdn.fancygrid.com/fancy.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<div class="text-center">
+    <h2 class="display-2">Feed</h2>
+
+    <div id="table" class="table-editable">
+        <span class="table-add glyphicon glyphicon-plus"></span>
+        <table class="table">
+            <tr>
+                <th>Title</th>
+                <th>Link</th>
+                <th>Posted Date</th>
+            </tr>
+            @foreach(var feed in ViewBag.feed)
+        {
+            <tr>
+                <td contenteditable="false">@feed.Title</td>
+                <td contenteditable="false" class="@feed.Id" ><a href="@feed.Link">@feed.Link</a></td>
+                <td contenteditable="false">@feed.PostedDate</td>
+                <td><button type="button" class="btn btn-primary btn-lg btnEdit" id="@feed.Id">Edit</button></td>
+            </tr>
+
+        }
+        </table>
+    </div>
+
+</div>
+
+
+<script>
+
+    $(document).ready(function () {
+        $(".btnEdit").click(function () {
+            //$(this)[0].prop('contenteditable', true);
+
+            $(this)
+        });
+    });
+
+</script>
+
